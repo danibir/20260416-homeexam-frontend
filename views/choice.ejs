@@ -1,0 +1,15 @@
+<%- include('./partials/head') %>
+
+<head>
+    <script src="/js/sendVote.js" defer></script>
+</head>
+<h1>CHOOSE</h1>
+<search class="flexrow center voteselection">
+    <% for( let i = 0; i < cards.length; i++ ) { %>
+        <div class="votecard" id="vote<%= i %>">
+            <%= cards[i] %>
+        </div>
+    <% } %>
+</search>
+
+<%- include('./partials/foot') %>
