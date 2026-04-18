@@ -4,10 +4,12 @@ const express = require('express')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const os = require('os')
+require('dotenv').config()
 
 const mid_main = require('./middleware/mid-main')
 
 const router_main = require('./routers/rou-main')
+const router_admin = require('./routers/rou-admin')
 
 const app = express()
 
@@ -25,6 +27,7 @@ app.use(mid_main.setLocal)
 //server start
 
 app.use('/', router_main)
+app.use('/ad', router_admin)
 
 app.listen(3000, () => {
         console.log('Server is running on port 3000 and on', os.hostname())
